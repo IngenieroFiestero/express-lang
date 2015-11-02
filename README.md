@@ -15,7 +15,7 @@ var opts = {
 	name : 'lang',
 	supported_lang : ['es','en','gr'],
 	getStrings : function(req,res,cb){
-	  //Code to load languaje strings to req.lang_strings
+		//Code to load languaje strings to req.lang_strings
 		cb();
 	}
 }
@@ -24,6 +24,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(expressLang.middleware(opts));
 ```
+
+### How it Works
+The middleware reads the cookie or the body parameter defined by the 'name' field. Then creates a variable in req.lang that contains the languaje that wants the user (req.lang = req.cookies[name]).
+The getStrings function define the form of load the strings in the system, its an optional parameter.
 
 ### Options:
 
@@ -35,8 +39,9 @@ Selects the method of reading the languaje.
 Names the cookie or the body parameter.
 
 #### Supported Languajes
-The list of the supported languajes.
+The list of the supported languages.
 
 #### Strings
-This function defines the method of loading the strings depending the languaje. 
+This function defines the method of loading the strings depending on the language. 
+
 
