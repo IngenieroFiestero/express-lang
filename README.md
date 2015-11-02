@@ -24,6 +24,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(expressLang.middleware(opts));
 ```
+### NPM install
+you can install it using npm:
+
+```
+var expressLang = require('express-languaje);
+```
 
 ### How it Works
 The middleware reads the cookie or the body parameter defined by the 'name' field. Then creates a variable in req.lang that contains the languaje that wants the user (req.lang = req.cookies[name]).
