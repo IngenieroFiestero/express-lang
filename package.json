@@ -1,12 +1,12 @@
 {
-	"name": "express-languaje",
+	"name": "express-language",
 	"version": "0.0.1",
 	"description": "...",
 	"main": "express-lang.js",
 	"author": {
 		"name": "Samuel Garcés Marín"
 	},
-	"keywords": [ "languaje", "multilanguaje", "express", "jade" ],
+	"keywords": [ "language", "multilanguage", "express", "jade" ],
 	"engines": {
 		"node": "*"
 	},

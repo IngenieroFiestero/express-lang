@@ -1,5 +1,5 @@
 # express-lang
-A simple way to change the languaje of the web.
+A simple way to change the language of the web.
 
 Example:
 
@@ -15,7 +15,7 @@ var opts = {
 	name : 'lang',
 	supported_lang : ['es','en','gr'],
 	getStrings : function(req,res,cb){
-		//Code to load languaje strings to req.lang_strings
+		//Code to load language strings to req.lang_strings
 		cb();
 	}
 }
@@ -28,26 +28,24 @@ app.use(expressLang.middleware(opts));
 you can install it using npm:
 
 ```
-var expressLang = require('express-languaje);
+var expressLang = require('express-language);
 ```
 
 ### How it Works
-The middleware reads the cookie or the body parameter defined by the 'name' field. Then creates a variable in req.lang that contains the languaje that wants the user (req.lang = req.cookies[name]).
+The middleware reads the cookie or the body parameter defined by the 'name' field. Then creates a variable in req.lang that contains the language that wants the user (req.lang = req.cookies[name]).
 The getStrings function define the form of load the strings in the system, its an optional parameter.
 
 ### Options:
 
 #### Method
 ['cookie','body']
-Selects the method of reading the languaje.
+Selects the method of reading the language.
 
 #### Name
 Names the cookie or the body parameter.
 
-#### Supported Languajes
+#### Supported languages
 The list of the supported languages.
 
 #### Strings
-This function defines the method of loading the strings depending on the language. 
-
-
+This function defines the method of loading the strings depending on the language.

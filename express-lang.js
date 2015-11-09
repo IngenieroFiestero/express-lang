@@ -11,7 +11,7 @@ var opts = {};
 
 */
 //Keept it simple
-var methods = ['cookie','body'];
+var methods = ['cookie','body','req-accept'];
 var functions =[
 	function(req,res,next){
 		if(req.cookies){
@@ -33,7 +33,7 @@ var functions =[
 				req.lang = opts.supported_lang[0];
 			}
 			if(opts.getStrings){
-				opts.getStrings(req,res,next);	
+				opts.getStrings(req,res,next);
 			}else{
 				next();
 			}
@@ -60,12 +60,32 @@ var functions =[
 				req.lang = opts.supported_lang[0];
 			}
 			if(opts.getStrings){
-				opts.getStrings(req,res,next);	
+				opts.getStrings(req,res,next);
 			}else{
 				next();
 			}
 		}else{
 			throw new Error('Cant find req.body, missing bodyparser middleware');
+		}
+	},
+	function(req,res,next){
+		var lang = req.acceptsLanguages(opts.supported_lang);
+		if(lang == false){
+			req.lang = opts.supported_lang[0];
+			if(opts.getStrings){
+				opts.getStrings(req,res,next);
+			}else{
+				next();
+			}
+		}else if(lang){
+			req.lang = lang;
+			if(opts.getStrings){
+				opts.getStrings(req,res,next);
+			}else{
+				next();
+			}
+		}else{
+			throw new Error('Cant find Accept-Language');
 		}
 	}];
 module.exports = function(options){
