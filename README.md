@@ -28,7 +28,7 @@ app.use(expressLang.middleware(opts));
 you can install it using npm:
 
 ```
-var expressLang = require('express-language);
+var expressLang = require('express-language');
 ```
 
 ### How it Works
@@ -38,11 +38,12 @@ The getStrings function define the form of load the strings in the system, its a
 ### Options:
 
 #### Method
-['cookie','body']
+['cookie','body','req-accept']
 Selects the method of reading the language.
 
 #### Name
 Names the cookie or the body parameter.
+* Not used in req-accept method.
 
 #### Supported languages
 The list of the supported languages.
