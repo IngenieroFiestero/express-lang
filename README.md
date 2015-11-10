@@ -5,7 +5,7 @@ Example:
 
 ```
 var express = require('express');
-var expressLang = require(__dirname + '\express-lang.js');
+var expressLang = require('express-language');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var app = express();
@@ -22,13 +22,13 @@ var opts = {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(expressLang.middleware(opts));
+app.use(expressLang(opts));
 ```
 ### NPM install
 you can install it using npm:
 
 ```
-var expressLang = require('express-language');
+npm install express-language
 ```
 
 ### How it Works
