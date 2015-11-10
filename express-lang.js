@@ -99,6 +99,9 @@ module.exports = function(options){
 			case methods[1]:
 				func = functions[1];
 				break;
+			case methods[2]:
+				func = functions[2];
+				break;
 			default:
 				func = functions[0];
 				break;
